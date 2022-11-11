@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/all.css">
+
+  <title>온누리한방병원</title>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <h1><span style="color: #702378; font-size: 38px;">온누리병원</span> 관리시스템</h1>
+      </div>
+      <form action="search" method="get">
+        <div id="search">
+          <input type="text" name="inputSch">
+          <input class="btn" type="submit" value="검색">
+        </div>
+      </form>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">환자현황</a></li>
+        <li><a href="#">오늘의 식단</a></li>
+        <li><a href="#">자유게시판</a></li>
+      </ul>
+    </nav>
+
+    <section>
+      <div id="shead">
+        <div class="container">
+          <div class="rollingbanner">
+              <div class="title">공지사항 > </div>
+              <div class="wrap">
+                  <ul>
+                      <li><a href="#">11/02 14시 4층에서 전체 회의 있습니다.</a></li>
+                      <li class="next"><a href="#">12/14 18시 송년회있습니다.</a></li>
+                      <li class="current"><a href="#">11/05 19시 병동 회식있습니다.</a></li>
+                      <li><a href="#">12월 부터 5층 병동 폐쇄합니다.</a></li>
+                      <li class="prev"><a href="#">12/16 이정재 과장 결혼식있습니다.</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+        <!-- <span><b>공지사항 > </b></span><span id="headline"></span> -->
+      </div>
+      <div id="lineChart">
+        <div class="chartHead">
+          주간 재원환자
+        </div>
+        <canvas id="myChart"></canvas>
+      </div>
+      <div id="pieChart">
+        <div class="chartHead">
+          재원 환자 비율
+        </div>
+        <canvas id="myChart2"></canvas>
+      </div>
+      <form action="loginChk" method="post">
+        <div id="login">
+          <table>
+            <tr>
+              <th>아이디</th>
+              <td><input type="text" name="id" size="10"></td>
+            </tr>
+            <tr>
+              <th>비밀번호</th>
+              <td><input type="password" name="pwd" size="10"></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <input class="btn" type="submit" name="btnLogin" value="로그인">
+                <input class="btn" type="button" onclick="location.href='join.html'" 
+                name="memberJoin" value="회원가입">
+              </td>
+            </tr>
+          </table>
+        </div>
+      </form>
+      <div id="in_out">
+        <div id="head">
+          <b>오늘의 입/퇴원 현황</b>
+          <a href="#" style="text-decoration:none ; color: rgb(68, 68, 68);">더보기</a>
+        </div>
+        <ul>
+          <li>입원 김미영 45/여 한방1과</li>
+          <li>입원 박민철 34/남 한방1과</li>
+          <li>입원 너도나 23/여 한방2과</li>
+          <li>퇴원 우지니 42/여 양방과</li>
+          <li>퇴원 조철재 45/남 한방1과</li>
+          <li>입원 이인재 57/남 양방과</li>
+          <li>퇴원 김시습 66/남 한방1과</li>
+          <li>퇴원 장경숙 64/여 한방2과</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      대표전화 : 032-OOO-OOOO
+      팩스 : 032-OOO-OOOO
+      주소 : 인천광역시 부평구 OOO OOO (부평동)
+      사업자번호 : OOO-OO-OOOOO 대표 : OOO<br>
+      COPYRIGHT(c) 2022 - CNR KOREAN MEDICINE HOSPITAL - ALL RIGHTS RESERVED. HOSTING BY INTERC
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+    crossorigin="anonymous"></script>
+  <script src="./js/myChart.js"></script>
+  
+
+</body>
+
+</html>

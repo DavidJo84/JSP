@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/all.css">
+  <title>온누리한방병원</title>
+  <style>
+    #join {
+      padding-left: 12px;
+      border-radius: 10px;
+      margin: 0 auto;
+      width: 330px;
+      height: 420px;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-sizing: border-box;
+      color: rgb(68, 68, 68);
+    }
+
+    #join table {
+
+      color: rgb(68, 68, 68);
+    }
+
+    #join td {
+      height: 41px;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <h1><span style="color: #702378; font-size: 38px;">온누리병원</span> 관리시스템</h1>
+      </div>
+      <form action="search" method="get">
+        <div id="search">
+          <input type="text" name="inputSch">
+          <input class="btn" type="submit" value="검색">
+        </div>
+      </form>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">환자현황</a></li>
+        <li><a href="#">오늘의 식단</a></li>
+        <li><a href="#">자유게시판</a></li>
+      </ul>
+    </nav>
+    <section>
+      <div id="join">
+        <form action="loginPass" method="post">
+          <table>
+            <tr>
+              <td colspan="2" style="text-align: center;"><b>회원가입</b></td>
+            </tr>
+            <tr>
+              <td>아이디</td>
+              <td>
+                <input type="text" name="joinid" size="10">
+                <input class="btn" type="button" value="중복체크">
+              </td>
+
+            </tr>
+            <tr>
+              <td>비밀번호</td>
+              <td><input type="password" name="joinpwd" size="10"></td>
+            </tr>
+            <tr>
+              <td>비밀번호 확인</td>
+              <td><input type="password" name="chkPwd" size="10"></td>
+            </tr>
+            <tr>
+              <td>성 명</td>
+              <td><input type="text" name="name" size="10"></td>
+            </tr>
+            <tr>
+              <td>성 별</td>
+              <td>
+                <input type="radio" name="gender" value="m">남
+                <input type="radio" name="gender" value="w">여
+              </td>
+            </tr>
+            <tr>
+              <td>전화번호</td>
+              <td>
+                010 -
+                <input type="text" name="tel1" size="4"> -
+                <input type="text" name="tel2" size="4">
+              </td>
+            </tr>
+            <tr>
+              <td>주 소</td>
+              <td>
+                <input type="text" name="addr" size="20">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" style="text-align: center;">
+                <input class="btn" type="submit" value="회원가입" style="width: 100%; height: 80%;">
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </section>
+    <footer>
+      대표전화 : 032-OOO-OOOO
+      팩스 : 032-OOO-OOOO
+      주소 : 인천광역시 부평구 OOO OOO (부평동)
+      사업자번호 : OOO-OO-OOOOO 대표 : OOO<br>
+      COPYRIGHT(c) 2022 - CNR KOREAN MEDICINE HOSPITAL - ALL RIGHTS RESERVED. HOSTING BY INTERC
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+    crossorigin="anonymous"></script>
+  <script src="./js/myChart.js"></script>
+</body>
+
+</html>
