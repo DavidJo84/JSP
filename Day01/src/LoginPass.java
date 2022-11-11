@@ -32,10 +32,18 @@ public class LoginPass extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
+		String gender = request.getParameter("gender");
+		String job = request.getParameter("job");
+		String[] coffe  = request.getParameterValues("coffe");
+		String[] hobby = request.getParameterValues("hobby");
 		String url = "TestloginView.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		request.setAttribute("id", id); //컨트롤러에서 view에게 데이터를 전송
 		request.setAttribute("pass", pass); //컨트롤러에서 view에게 데이터를 전송
+		request.setAttribute("gender", gender); //컨트롤러에서 view에게 데이터를 전송
+		request.setAttribute("job", job); //컨트롤러에서 view에게 데이터를 전송
+		request.setAttribute("coffe", coffe); //컨트롤러에서 view에게 데이터를 전송
+		request.setAttribute("hobby", hobby); //컨트롤러에서 view에게 데이터를 전송
 		dispatcher.forward(request, response);
 	}
 
