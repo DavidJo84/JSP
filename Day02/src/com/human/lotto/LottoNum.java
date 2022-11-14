@@ -56,5 +56,4 @@ public class LottoNum {
 		Collections.sort(lottoNum);
 		return lottoNum;
 	}
-
 }
