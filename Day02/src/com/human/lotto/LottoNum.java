@@ -52,10 +52,8 @@ public class LottoNum {
 			} else {
 				i--;
 			}
-
 		}
 		Collections.sort(lottoNum);
-
 		return lottoNum;
 	}
 
