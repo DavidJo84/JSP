@@ -7,22 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${id}</h1>
-	<h1>${pass}</h1>
-	<h1>${gender}</h1>
-	<h1>${job}</h1>
+	<b>아이디: ${id}</b><br>
+	<b>비밀번호: ${pass}</b><br>
+	<b>성별: ${gender}</b><br>
+	<b>직업: ${job}</b><br>
+	<b>커피: </b>
+	
 	<% String[] coffe = request.getParameterValues("coffe"); %>
 	<% 
 	for(int i = 0; i < coffe.length; i++){
 	%>
-	<%=coffe[i] %>
-	<% }; %>
+	<b><%=coffe[i] %></b>
+	<% }; %><br>
 	
+	<b>취미: </b>
 	<% String[] hobby = request.getParameterValues("hobby"); %>
 	<% 
 	for(int i = 0; i < hobby.length; i++){
 	%>
-	<%=hobby[i] %>
-	<% }; %>
+	<b><%=hobby[i] %></b>
+	<% }; %><br>
 </body>
 </html>
