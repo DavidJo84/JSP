@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>나의 홈페이지</h1>
-	<div>[home] [게시판]</div>
+	<div>[home] <a href="BoardList">[게시판]</a></div>
 </body>
 </html>
