@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Board
+ * Servlet implementation class Controller
  */
-@WebServlet("/BoardView") //@:어노테이션- 특별한 의미를 부여 서블릿으로 동작한 클래스이다
-public class BoardView extends HttpServlet {
+@WebServlet("/")
+public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardView() {
+    public Controller() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,5 +41,4 @@ public class BoardView extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
