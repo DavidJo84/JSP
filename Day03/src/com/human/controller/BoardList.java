@@ -10,11 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.human.dao.BoardDAO;
+import com.human.vo.BoardVO;
+
 /**
  * Servlet implementation class BoardList
  */
 @WebServlet("/BoardList")
 public class BoardList extends HttpServlet {
+	private BoardDAO boardDao = new BoardDAO(); 
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -31,7 +35,9 @@ public class BoardList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//데이터베이스 접근
-		ArrayList<String> bList = new ArrayList<>();
+		
+		ArrayList<BoardVO> bList = boardDao.selectAll();
+		System.out.println(bList.size());
 		
 		//포워딩
 		String url = "/bbs/list.jsp";

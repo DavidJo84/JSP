@@ -42,6 +42,7 @@ public class wrAction extends HttpServlet {
 		String email = request.getParameter("email");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		System.out.println(name + "/" + pass + "/" + email + "/" + title + "/" + content);
 		
 		BoardVO boardVo = new BoardVO();
 		boardVo.setName(name);
@@ -50,10 +51,13 @@ public class wrAction extends HttpServlet {
 		boardVo.setTitle(title);
 		boardVo.setContent(content);
 		
-		boardDao.insert(boardVo);
+		if(name!=null) {
+			boardDao.insert(boardVo);
+		}else {
+			System.out.println("입력할 글이 없습니다.");
+		}
 
 		// DB insert작업
-		System.out.println(name + "/" + pass + "/" + email + "/" + title + "/" + content);
 
 		response.sendRedirect("BoardList");
 	}
