@@ -62,7 +62,7 @@ private Connection conn = null;
 		ArrayList<ReVO> rList = new ArrayList<>();
 		ResultSet rs = null;
 		if(connect()) {
-			String sql="select * from reBoard where num=?";
+			String sql="select * from reBoard where num=? order by reIndate desc";
 			
 			try {
 				PreparedStatement psmt = conn.prepareStatement(sql);

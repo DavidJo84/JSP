@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="java.util.*"%>
+<%@ page import="com.human.vo.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,40 +10,42 @@
 <link rel="stylesheet" type="text/css" href="./css/shopping.css">
 </head>
 <body>
+<%BoardVO bvo = (BoardVO)request.getAttribute("bvo"); %>
 	<div id="wrap" align="">
-		<h1>QnA 등록</h1>
+		<h1>QnA 수정</h1>
 		<form id="go" name="frm" method="post" action="QnaAction">
 			<input type="hidden" name="command" value="board_write">
 			<table>
 				<tr>
 					<th>글번호</th>
-					<td><input type="hidden" name="jsp" value = "qnaForm">
-					<input type="hidden" name="num" value = "${num}">${num}</td>
+					<td>
+					<input type="hidden" name="jsp" value = "modyForm">
+					<input type="hidden" name="num" value = "${bvo.getNum()}">${bvo.getNum()}</td>
 				</tr>
 				<tr>
 					<th>아이디</th>
-					<td><input id="idchk" type="text" name="id"> * 필수 <span
+					<td><input id="idchk" type="text" name="id" value = "${bvo.getId()}"> * 필수 <span
 						id="idchkOut"></span></td>
 				</tr>
 
 				<tr>
 					<th>이름</th>
-					<td><input id="namechk" type="text" name="name"> * 필수
+					<td><input id="namechk" type="text" name="name" value = "${bvo.getName()}"> * 필수
 						<span id="namechkOut"></span></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input id="passchk" type="password" name="pass"> *
+					<td><input id="passchk" type="password" name="pass" value = "${bvo.getPass()}"> *
 						필수 (게시물 수정 삭제시 필요합니다.) <span id="passchkOut"></span></td>
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" size="50" name="title"><input
+					<td><input type="text" size="50" name="title" value = "${bvo.getTitle()}"><input
 						type="checkBox" name="chk">*비밀글</td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea cols="70" rows="15" name="content"></textarea></td>
+					<td><textarea cols="70" rows="15" name="content">${bvo.getContent()}</textarea></td>
 				</tr>
 			</table>
 			<br> <br> <input type="button" onclick="allChk()"

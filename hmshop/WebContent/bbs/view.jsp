@@ -65,8 +65,8 @@ p{margin: 0px;
 				}
 			%>
        </table>
-      <br> <br> <input type="button" value="게시글 수정">
-      <input type="button" value="게시글 삭제">
+      <br> <br> <input type="button" onclick= "location.href = 'QnaMody?num=${bvo.getNum()}'" value="게시글 수정">
+      <input type="button" onclick = "del()" value="게시글 삭제">
       <input type="button" onclick="location.href = 'QnaBoardList'" value="목록 보기">
       <input type="button" onclick = "showRe()" value="답변쓰기"> 
       <form action="reAction" method="get">
@@ -85,6 +85,12 @@ p{margin: 0px;
 <script type="text/javascript">
 	function showRe(){
 		document.getElementById("review").style.display = 'block';
+	}
+	
+	function del(){
+		if(confirm("게시글을 삭제하시겠습니까??")){
+			window.location.href = "QnaDel?num=" + ${bvo.getNum()};
+		}		
 	}
 </script>
 </html>

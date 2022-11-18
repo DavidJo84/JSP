@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.human.dao.BoardDAO;
 import com.human.vo.BoardVO;
+import com.human1.dao.BoardDAO;
 
 /**
  * Servlet implementation class wrAction

@@ -2,6 +2,7 @@ package com.human.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,15 +37,18 @@ public class QnaAction extends HttpServlet {
 		BoardDAO boardDao = new BoardDAO();
 		request.setCharacterEncoding("UTF-8");// 받은 파라미터 인코딩
 		response.setContentType("text/html; charset=UTF-8");
+		int num = Integer.parseInt(request.getParameter("num"));
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		String chk = request.getParameter("chk");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		System.out.println(id+chk+title+content);
+		String jsp = request.getParameter("jsp");
+		System.out.println(id+chk+title+content+jsp);
 
 		BoardVO boardVo = new BoardVO();
+		boardVo.setNum(num);
 		boardVo.setId(id);
 		boardVo.setName(name);
 		boardVo.setPass(pass);
@@ -52,9 +56,17 @@ public class QnaAction extends HttpServlet {
 		boardVo.setTitle(title);
 		boardVo.setContent(content);
 		// DB insert작업
-		boardDao.insert(boardVo);
+		if(jsp.equals("qnaForm")) {
+			boardDao.insert(boardVo);
+			response.sendRedirect("QnaBoardList");
+		}else if(jsp.equals("modyForm")){
+			boardDao.mody(boardVo);
+			String url = "QnaBoardView";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+			request.setAttribute("num", num);
+			dispatcher.forward(request, response);
+		}
 
-		response.sendRedirect("QnaBoardList");
 	}
 
 	/**

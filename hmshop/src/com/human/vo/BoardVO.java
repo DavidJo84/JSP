@@ -9,8 +9,16 @@ public class BoardVO {
 	public String content;
 	public String chk;
 	public int cnt;
+	public int revCnt;
 	public String indate;
 	
+	
+	public int getRevCnt() {
+		return revCnt;
+	}
+	public void setRevCnt(int revCnt) {
+		this.revCnt = revCnt;
+	}
 	public int getNum() {
 		return num;
 	}

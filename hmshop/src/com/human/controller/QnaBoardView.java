@@ -42,7 +42,8 @@ public class QnaBoardView extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		String num = request.getParameter("num");
-		BoardVO bvo = bdao.selectOne(num);
+		String cnt = request.getParameter("cnt");
+		BoardVO bvo = bdao.selectOne(num, cnt);
 		ArrayList<ReVO> rList = rdao.selectAll(num);
 		String url = "/bbs/view.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

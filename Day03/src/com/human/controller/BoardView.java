@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.human.dao.BoardDAO;
 import com.human.vo.BoardVO;
+import com.human1.dao.BoardDAO;
 
 /**
  * Servlet implementation class BoardView
@@ -35,7 +35,6 @@ public class BoardView extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		String num = request.getParameter("num");
-		System.out.println("글번호:"+ num);
 		BoardVO bvo = bdao.selectOne(num);
 		String url = "/bbs/view.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.human.dao.BoardDAO;
+import com.human.vo.BoardVO;
 
 /**
- * Servlet implementation class wrForm
+ * Servlet implementation class QnaMody
  */
-@WebServlet("/QnaForm")
-public class QnaForm extends HttpServlet {
-	private BoardDAO boardDao = new BoardDAO(); 
+@WebServlet("/QnaMody")
+public class QnaMody extends HttpServlet {
+	BoardDAO bdao = new BoardDAO();
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QnaForm() {
+    public QnaMody() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,10 +33,12 @@ public class QnaForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String num = boardDao.getNumber();
-		String url = "bbs/qnaForm.jsp";
+		String num = request.getParameter("num");
+		String cnt = request.getParameter("cnt");
+		BoardVO bvo = bdao.selectOne(num,cnt);
+		String url = "/bbs/modyForm.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		request.setAttribute("num", num);
+		request.setAttribute("bvo", bvo);
 		dispatcher.forward(request, response);
 	}
 

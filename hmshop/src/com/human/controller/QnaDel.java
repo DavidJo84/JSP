@@ -1,8 +1,6 @@
 package com.human.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,17 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.human.dao.BoardDAO;
 
 /**
- * Servlet implementation class wrForm
+ * Servlet implementation class QnaDel
  */
-@WebServlet("/QnaForm")
-public class QnaForm extends HttpServlet {
+@WebServlet("/QnaDel")
+public class QnaDel extends HttpServlet {
 	private BoardDAO boardDao = new BoardDAO(); 
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QnaForm() {
+    public QnaDel() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +30,12 @@ public class QnaForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String num = boardDao.getNumber();
-		String url = "bbs/qnaForm.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		request.setAttribute("num", num);
-		dispatcher.forward(request, response);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String[] num = request.getParameterValues("num");
+		
+		boardDao.delete(num);
+		
+		response.sendRedirect("QnaBoardList");
 	}
 
 	/**
