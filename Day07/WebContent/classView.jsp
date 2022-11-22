@@ -43,10 +43,6 @@ table {
 				out.print("</tr>");
 			}
 		%>
-				<tr style="text-align: center;">
-					<td colspan="7"><input type='button' onclick="mody()"
-						value='수정'></td>
-				</tr>
 
 			</tbody>
 		</table>

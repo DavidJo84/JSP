@@ -54,8 +54,12 @@ margin: 0 auto;
 					out.print("D");
 				}
 				out.print("</td>");
-				out.print("<td><input type = 'button' onclick=" + "location.href='DelStud?no=" + svo.getNo()
-						+ "' value='삭제'></td>");
+				out.print("<td><input type = 'button' onclick=");
+				
+				out.print("\""+"location.href =");
+				out.print("'"+"DelStud?no=");
+				out.print(svo.getNo()+"'");
+				out.print("\""+ "value='삭제'></td>");
 				out.print("</tr>");
 			}
 		%>

@@ -7,11 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hm.DAO.StudDAO;
+
 /**
  * Servlet implementation class DelStud
  */
 @WebServlet("/DelStud")
 public class DelStud extends HttpServlet {
+	StudDAO sdao = new StudDAO();
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -27,7 +30,11 @@ public class DelStud extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		int no = Integer.parseInt(request.getParameter("no"));
+		System.out.println(no);
+		sdao.delete(no);
+		response.sendRedirect("ViewList");
 	}
 
 	/**

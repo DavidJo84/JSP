@@ -140,4 +140,22 @@ public class StudDAO {
 		return cList;
 	}
 
+	public void delete(int no) {
+		String sql = "delete member_hm where no = ?";
+		if(connect()) {
+			try {
+				PreparedStatement psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, no);
+				psmt.executeQuery();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		// TODO Auto-generated method stub
+		
+	}
+
 }
