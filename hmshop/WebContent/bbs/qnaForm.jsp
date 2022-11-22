@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="./css/shopping.css">
 </head>
 <body>
-	<div id="wrap" align="">
+	<div id="wrap">
 		<h1>QnA 등록</h1>
 		<form id="go" name="frm" method="post" action="QnaAction">
 			<input type="hidden" name="command" value="board_write">

@@ -11,7 +11,7 @@
 </head>
 <body>
 <%BoardVO bvo = (BoardVO)request.getAttribute("bvo"); %>
-	<div id="wrap" align="">
+	<div id="wrap">
 		<h1>QnA 수정</h1>
 		<form id="go" name="frm" method="post" action="QnaAction">
 			<input type="hidden" name="command" value="board_write">
