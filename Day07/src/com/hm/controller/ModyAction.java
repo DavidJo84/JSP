@@ -1,8 +1,6 @@
 package com.hm.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,17 +11,17 @@ import com.hm.DAO.StudDAO;
 import com.hm.VO.StudVO;
 
 /**
- * Servlet implementation class ModyStud
+ * Servlet implementation class ModyAction
  */
-@WebServlet("/ModyStud")
-public class ModyStud extends HttpServlet {
+@WebServlet("/ModyAction")
+public class ModyAction extends HttpServlet {
 	StudDAO sdao = new StudDAO();
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModyStud() {
+    public ModyAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +32,18 @@ public class ModyStud extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		int no = Integer.parseInt(request.getParameter("no"));
+		request.setCharacterEncoding("UTF-8");
 		StudVO svo = new StudVO();
-		svo = sdao.selectOne(no);
-		String url = "modyForm.jsp";
-		RequestDispatcher dispatcher =  request.getRequestDispatcher(url);
-		request.setAttribute("svo", svo);
-		dispatcher.forward(request, response);
+		svo.setNo(Integer.parseInt(request.getParameter("no")));
+		svo.setName(request.getParameter("name"));
+		svo.setTel(request.getParameter("tel"));
+		svo.setAddress(request.getParameter("address"));
+		svo.setJoinDate(request.getParameter("joindate"));
+		svo.setGrade(request.getParameter("grade"));
+		sdao.mody(svo);
 		
+		response.sendRedirect("ViewList");
+	
 	}
 
 	/**

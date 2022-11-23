@@ -63,12 +63,37 @@ public class StudDAO {
 		
 	}
 	
+	public void mody(StudVO svo) {
+		String sql = "update member_hm set name=?,tel=?,address=?,joindate=?,grade=? where no=?";
+		if(connect()) {
+			try {
+				PreparedStatement psmt = conn.prepareStatement(sql);
+				
+				psmt.setString(1, svo.getName());
+				psmt.setString(2, svo.getTel());
+				psmt.setString(3, svo.getAddress());
+				psmt.setString(4, svo.getJoinDate());
+				psmt.setString(5, svo.getGrade());
+				psmt.setInt(6, svo.getNo());
+				System.out.println(svo.getNo()+svo.getName()+svo.getTel()+svo.getJoinDate()+svo.getGrade());
+				psmt.executeQuery();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+	
 	public ArrayList<StudVO> selectAll() {
 		ResultSet rs;
 		ArrayList<StudVO> sList = new ArrayList<>();
-		String sql = "select * from member_hm";
+		String sql = "select * from member_hm order by no";
 		if(connect()) {
 			try {
+				
 				Statement stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
 				while(rs.next()) {
@@ -90,6 +115,35 @@ public class StudDAO {
 		return sList;
 		
 	}
+	
+	public StudVO selectOne(int no) {
+		ResultSet rs;
+		String sql = "select * from member_hm where no=?";
+		if(connect()) {
+			try {
+				PreparedStatement psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, no);
+				rs= psmt.executeQuery();
+				if(rs.next()) {
+					StudVO svo = new StudVO();
+					svo.setNo(rs.getInt("no"));
+					svo.setName(rs.getString("name"));
+					svo.setTel(rs.getString("tel"));
+					svo.setAddress(rs.getString("address"));
+					svo.setJoinDate(rs.getString("joindate"));
+					svo.setGrade(rs.getString("grade"));
+					return svo;
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+		
+	}
+	
 	
 	public int getNo() {
 		ResultSet rs;

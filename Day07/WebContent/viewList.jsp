@@ -53,14 +53,14 @@ margin: 0 auto;
 				}else if(svo.getGrade().equals("4")){
 					out.print("D");
 				}
-				out.print("</td>");
-				out.print("<td><input type = 'button' onclick=");
+			out.print("</td>");
+			out.print("<td><input type = 'button' onclick=");
 				
-				out.print("\""+"location.href =");
-				out.print("'"+"DelStud?no=");
-				out.print(svo.getNo()+"'");
-				out.print("\""+ "value='삭제'></td>");
-				out.print("</tr>");
+			out.print("\""+"location.href =");
+			out.print("'"+"DelStud?no=");
+			out.print(svo.getNo()+"'");
+			out.print("\""+ "value='삭제'></td>");
+			out.print("</tr>");
 			}
 		%>
 		<tr style = "text-align: center;">
@@ -72,4 +72,10 @@ margin: 0 auto;
 </section>
 <%@ include file="footer.jsp" %>
 </body>
+<script type="text/javascript">
+function mody(){
+	let modyNo = prompt("수정할 번호를 입력하세요.");
+	window.location.href = "ModyStud?no="+modyNo;
+}
+</script>
 </html>
